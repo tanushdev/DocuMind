@@ -1,0 +1,11 @@
+# Exclude test files from Docker build
+*_test.go
+**/*_test.go
+*.test
+*.out
+
+# Other exclusions
+.git
+.gitignore
+README.md
+*.md

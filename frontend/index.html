@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind - AI Document Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📄</span>
+                <h1>DocuMind</h1>
+            </div>
+            <div class="status-indicator" id="status">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept=".pdf,.txt" hidden>
+                    <div class="upload-icon">📁</div>
+                    <h3>Drop your document here</h3>
+                    <p>or click to browse (PDF, TXT)</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Select File
+                    </button>
+                </div>
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Uploading...</p>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section class="chat-section">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <h2>Welcome to DocuMind</h2>
+                        <p>Upload a document and ask questions about it. I'll provide answers with source citations.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="queryInput" 
+                        placeholder="Ask a question about your documents..."
+                        disabled
+                    >
+                    <button class="btn btn-send" id="sendBtn" onclick="sendQuery()" disabled>
+                        <span>Send</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar with Metrics -->
+        <aside class="sidebar">
+            <h3>System Metrics</h3>
+            <div class="metrics-grid" id="metricsGrid">
+                <div class="metric-card">
+                    <span class="metric-label">Documents</span>
+                    <span class="metric-value" id="docCount">0</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Vectors</span>
+                    <span class="metric-value" id="vectorCount">0</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Cache Hit</span>
+                    <span class="metric-value" id="cacheHit">0%</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Avg Latency</span>
+                    <span class="metric-value" id="avgLatency">-</span>
+                </div>
+            </div>
+
+            <h3>Recent Documents</h3>
+            <div class="document-list" id="documentList">
+                <p class="no-docs">No documents uploaded yet</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
