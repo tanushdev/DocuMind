@@ -462,5 +462,3 @@ MIT License - feel free to use this for learning, portfolios, and interviews.
 - [Ollama](https://ollama.ai) for local LLM inference
 
 ---
-
-**Built with ❤️ for learning and demonstrating systems engineering skills.**
